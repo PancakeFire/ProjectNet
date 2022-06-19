@@ -1,0 +1,68 @@
+﻿@model Rejestracja_Miejsc.Models.Reservation
+
+@{
+    ViewData["Title"] = "Create";
+    var usermail = TempData["User-Email"];
+    var movieid = TempData["Movie-Id"];
+
+}
+<head>
+    <link rel="stylesheet" href="~/CSS2/StyleSheet.css" asp-append-version="true" />
+</head>
+<h1>Create</h1>
+<h4>Reservation</h4>
+<hr />
+
+
+<div class="autocenter">
+@for(int i=0;i<36;i++)
+{
+    if (i % 6 == 0)
+    {
+        <br />
+    }
+        <button type="reset" value=@i>
+            <img src = "~/Images/seat-green.png" width="60" height="60"/>
+        </button>
+}
+</div>
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="SeatRow" class="control-label"></label>
+                <input asp-for="SeatRow" value="0" class="form-control" />
+                <span asp-validation-for="SeatRow" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SeatColumn" class="control-label"></label>
+                <input asp-for="SeatColumn" value="0" class="form-control" />
+                <span asp-validation-for="SeatColumn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserEmail" class="control-label hide-this"></label>
+                <input asp-for="UserEmail" value = "@usermail" class="form-control hide-this" />
+                <span asp-validation-for="UserEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MovieId" class="control-label hide-this"></label>
+                <input asp-for="MovieId" value = "@movieid" class="form-control hide-this" />
+                <span asp-validation-for="MovieId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary background-green text-grey" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class = "text-grey" asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

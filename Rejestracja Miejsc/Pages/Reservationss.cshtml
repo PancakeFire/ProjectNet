@@ -1,0 +1,31 @@
+﻿@page
+@model Rejestracja_Miejsc.Pages.ReservationssModel
+@{
+}
+
+<h1>My reservations</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Reservation date</th>
+            <th>Movie Title</th>
+            <th>Seat Row</th>
+            <th>Seat Column</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var reservation in Model.listReservationss)
+{
+         <tr>
+             <td>@reservation.ShowTime</td>
+             <td>@reservation.Title</td>
+             <td>@reservation.SeatRow</td>
+             <td>@reservation.SeatColumn</td>
+         </tr>
+}
+    </tbody>
+</table>

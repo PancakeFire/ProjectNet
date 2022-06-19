@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Rejestracja_Miejsc.Models.Show>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Movies</h1>
+@if (ViewBag.email == "admin@admin.com")
+{
+    <p>
+    <a class= "text-green" asp-action="Create">Create New</a>
+    </p>
+}
+
+<table class="table text-grey2">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShowTime)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) 
+{
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShowTime)
+            </td>
+            <td>
+                @if (ViewBag.email == "admin@admin.com")
+                {
+                    <a class= "text-green" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class= "text-green" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    <a class= "text-green" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                }
+                else
+                {
+                    <a class= "text-green" asp-action="AddReservation" asp-route-id="@item.Id">Add Reservation</a>
+                }
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

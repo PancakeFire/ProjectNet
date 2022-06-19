@@ -1,0 +1,23 @@
+html {
+    font-size: 14px;
+    color: hotpink;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 18px;
+        color: hotpink;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+    background-color: #232323;
+    color: hotpink;
+}
+
+body {
+    margin-bottom: 60px;
+    color: hotpink;
+}

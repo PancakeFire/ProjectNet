@@ -1,0 +1,27 @@
+﻿
+
+
+<h1>My reservations</h1>
+
+
+<table class="table text-grey2">
+    <thead>
+        <tr>
+            <th>Reservation date</th>
+            <th>Movie Title</th>
+            <th>Seat Row</th>
+            <th>Seat Column</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var reservation in ViewBag.MyList)
+{
+         <tr>
+             <td>@reservation.ShowTime</td>
+             <td>@reservation.Title</td>
+             <td>@reservation.SeatRow</td>
+             <td>@reservation.SeatColumn</td>
+         </tr>
+}
+    </tbody>
+</table>
